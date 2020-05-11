@@ -19,7 +19,7 @@ app.use(express.json()); // Access data sent as json @req.body
 app.use(express.urlencoded({ extended: false })); // Access data sent as urlEncoded (standard form or postman) @req.body
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app;
+// app;
 app.use(
   session({
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
@@ -42,9 +42,11 @@ app.use(function (req, res, next) {
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
+const itemsRouter = require("./routes/items");
 
 app.use("/", indexRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
+app.use("/", itemsRouter);
 
 module.exports = app;

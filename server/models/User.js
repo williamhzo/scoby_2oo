@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Contact = require('./Contact')
 
 const userSchema = new Schema({
   firstName: String,
