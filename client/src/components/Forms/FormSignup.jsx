@@ -5,14 +5,16 @@ import apiHandler from "../../api/apiHandler";
 import "../../styles/form.css";
 
 class FormSignup extends Component {
-  state = {};
+  state = {
+    // firstName: '',
+    // lastName:'',
+    // email: '',
+    // password: '', 
+  };
 
   handleChange = (event) => {
-    const value =
-      event.target.type === "file" ? event.target.files[0] : event.target.value;
-
+    const value = event.target.type === "file" ? event.target.files[0] : event.target.value;
     const key = event.target.name;
-
     this.setState({ [key]: value });
   };
 

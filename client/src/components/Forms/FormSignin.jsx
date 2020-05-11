@@ -6,7 +6,10 @@ import apiHandler from "../../api/apiHandler";
 import "../../styles/form.css";
 
 class FormSignin extends Component {
-  state = {};
+  state = {
+    // email: '',
+    // password: '', 
+  };
 
   handleChange = (event) => {
     const key = event.target.name;

@@ -8,6 +8,8 @@ const logger = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
+const cors = require("cors");
+
 const app = express();
 
 /**
@@ -26,6 +28,15 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
+  })
+);
+
+// Allows communication between apps from different domain.
+app.use(
+  cors({
+    origin: [process.env.FRONT_END_URL, 'http://localhost:3000', 'http://localhost:3001'], 
+    credentials:true,
+    // Access-Control-Allow-Origin: process.env.FRONT_END_URL,
   })
 );
 
